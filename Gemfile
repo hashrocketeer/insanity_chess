@@ -1,0 +1,15 @@
+source 'https://rubygems.org'
+
+gem 'coffee-rails'
+gem 'ember-rails'
+gem 'ember-source'
+gem 'emblem-rails'
+gem 'haml-rails'
+gem 'jbuilder'
+gem 'jquery-rails'
+gem 'pg'
+gem 'puma'
+gem 'rails', '4.1.4'
+gem 'sass-rails', '~> 4.0.3'
+gem 'spring',        group: :development
+gem 'uglifier'
