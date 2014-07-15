@@ -2,17 +2,21 @@ App.GameCreator = Ember.Object.extend
 
   newGame: ->
     game = @get('store').createRecord 'game'
-    game.set('board', @createBoard())
+    board = @createBoard()
+    players = ['white', 'black'].map (color) =>
+      player = @get('store').createRecord 'player', color: color
+      App.PieceCreator.create(store: @store, board: board, player: player).initialState()
+    game.set('board', board)
     return game
 
   createBoard: ->
-    @get('store').createRecord 'board', spaces: @initializeSpaces()
+    @get('store').createRecord 'board', rawSpaces: @initializeSpaces()
 
   initializeSpaces: ->
     spaces = []
     for x in [0..69]
       spaces[x] = []
       for y in [0..34]
-        spaces[x][y] = { pieces: null }
+        spaces[x][y] = { piece: null }
 
     JSON.stringify spaces

@@ -1,7 +1,8 @@
 App.Board = DS.Model.extend
   game: DS.belongsTo 'game'
-  spaces: DS.attr 'string'
+  rawSpaces: DS.attr 'string'
 
-  parsedSpaces: (->
-    JSON.parse @get('spaces')
-  ).property('spaces')
+  spaces: (-> JSON.parse @get('rawSpaces')).property('rawSpaces')
+
+  height: Em.computed.alias 'spaces.length'
+  width: Em.computed.alias 'spaces.firstObject.length'

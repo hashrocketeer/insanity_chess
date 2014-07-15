@@ -5,4 +5,5 @@ section#board
   each row in rows
     each space in row
       span.space
+        space.piece
     br
