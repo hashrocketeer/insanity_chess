@@ -5,8 +5,11 @@ App.GameCreator = Ember.Object.extend
     board = @createBoard()
     players = ['white', 'black'].map (color) =>
       player = @get('store').createRecord 'player', color: color
+      player.save()
       App.PieceCreator.create(store: @store, board: board, player: player).initialState()
     game.set('board', board)
+    game.save()
+    board.save()
     return game
 
   createBoard: ->

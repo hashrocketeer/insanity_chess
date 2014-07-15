@@ -16,12 +16,15 @@ App.PieceCreator = Ember.Object.extend
     piece = @get('store').createRecord 'piece', kind: kind, player: @get('player')
     space = @get('board.spaces')[y][x]
     space.piece = piece.id
+    piece.save()
 
   createPieces: ->
     @createPiece 'king', @get('startX'), @get('startY')
     @createPiece 'queen', @get('startX') - 1, @get('startY')
     pawnRow = @get('startY') + @get('direction')
     @createPawns(pawnRow)
+    @createAdvancedPieces()
+    @get('board').updateSpaces()
 
   createAdvancedPieces: ->
     types = ['bishop', 'knight', 'rook']

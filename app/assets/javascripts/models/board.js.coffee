@@ -4,5 +4,9 @@ App.Board = DS.Model.extend
 
   spaces: (-> JSON.parse @get('rawSpaces')).property('rawSpaces')
 
+  updateSpaces: ->
+    @set 'rawSpaces', JSON.stringify(@get('spaces'))
+    @save()
+
   height: Em.computed.alias 'spaces.length'
   width: Em.computed.alias 'spaces.firstObject.length'
