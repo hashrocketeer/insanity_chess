@@ -12,6 +12,11 @@
     "alternate": "spec/javascripts/models/%s_spec.js.coffee",
     "template": "App.%S = DS.Model.extend"
   },
+  "app/assets/javascripts/lib/*.js.coffee": {
+    "command": "jlib",
+    "alternate": "spec/javascripts/lib/%s_spec.js.coffee",
+    "template": "App.%S = Ember.Object.extend"
+  },
   "app/assets/javascripts/views/*.js.coffee": {
     "command": "jview",
     "alternate": "spec/javascripts/views/%s_spec.js.coffee",

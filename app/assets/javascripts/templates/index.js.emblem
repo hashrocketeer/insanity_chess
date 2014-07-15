@@ -1,0 +1,4 @@
+h1 Insanity Chess
+h2 Prepare for the insanity.
+
+button click="createGame" New Game

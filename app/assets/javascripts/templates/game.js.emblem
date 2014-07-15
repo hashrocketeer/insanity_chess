@@ -1,0 +1,8 @@
+h1 Insanity Chess
+
+section#board
+
+  each row in rows
+    each space in row
+      span.space
+    br
