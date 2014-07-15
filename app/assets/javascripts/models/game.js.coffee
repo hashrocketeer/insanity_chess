@@ -1,3 +1,3 @@
 App.Game = DS.Model.extend
-  board: DS.belongsTo 'board', async: true
+  board: DS.belongsTo 'board'
   players: DS.hasMany 'player'
