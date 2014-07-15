@@ -3,7 +3,6 @@
 #= require handlebars
 #= require ember
 #= require ember-data
-#= require emberfire
 #= require_self
 #= require app
 
