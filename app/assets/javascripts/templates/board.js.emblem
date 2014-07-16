@@ -2,8 +2,3 @@ section#board
 
   each piece in pieces
     render 'piece' piece
-
-  each row in rows
-    each space in row
-      render 'space' space
-    br
