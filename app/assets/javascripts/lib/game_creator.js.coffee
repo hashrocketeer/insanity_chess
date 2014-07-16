@@ -2,12 +2,12 @@ App.GameCreator = Ember.Object.extend
 
   newGame: ->
     game = @get('store').createRecord 'game'
-    board = @createBoard()
-    players = @createPlayers(board)
-    game.set 'thisPlayer', players.get('firstObject')
-    game.set('board', board)
-    game.save()
-    board.save()
+    game.save().then (game) =>
+      @createBoard(game).save().then (board) =>
+        players = @createPlayers(board)
+        game.set 'thisPlayer', players.get('firstObject')
+        game.set('board', board)
+        game.save()
     return game
 
   createPlayers: (board) ->
@@ -17,8 +17,10 @@ App.GameCreator = Ember.Object.extend
         App.PieceCreator.create(store: @store, board: board, player: player).initialState()
       player
 
-  createBoard: ->
-    @get('store').createRecord 'board', rawSpaces: @initializeSpaces()
+  createBoard: (game) ->
+    @get('store').createRecord 'board',
+      rawSpaces: @initializeSpaces()
+      game: game
 
   initializeSpaces: ->
     spaces = []
