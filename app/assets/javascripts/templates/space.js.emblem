@@ -1,3 +1,0 @@
-span.space
-  if piece
-    render 'piece' piece
