@@ -1,2 +1,3 @@
 span.space
-  piece.kind
+  if piece
+    render 'piece' piece
