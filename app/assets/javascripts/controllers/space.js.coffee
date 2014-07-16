@@ -1,4 +1,4 @@
-App.SpaceController = Ember.Controller.extend
+App.SpaceController = Ember.ObjectController.extend
 
   piece: ( ->
     @store.find('piece', @get('model.piece')) if @get('model.piece')
