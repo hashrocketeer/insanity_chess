@@ -25,6 +25,6 @@ App.GameCreator = Ember.Object.extend
     for x in [0..69]
       spaces[x] = []
       for y in [0..34]
-        spaces[x][y] = { piece: null }
+        spaces[x][y] = { x: x, y: y, piece: null }
 
     JSON.stringify spaces
