@@ -13,7 +13,12 @@ App.PieceCreator = Ember.Object.extend
     @createPieces()
 
   createPiece: (kind, x, y) ->
-    piece = @get('store').createRecord 'piece', kind: kind, player: @get('player')
+    piece = @get('store').createRecord 'piece',
+      kind: kind
+      player: @get('player')
+      board: @get('board')
+      x: x
+      y: y
     space = @get('board.spaces')[y][x]
     space.piece = piece.id
     piece.save()

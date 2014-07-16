@@ -1,6 +1,7 @@
 App.Board = DS.Model.extend
   game: DS.belongsTo 'game'
   rawSpaces: DS.attr 'string'
+  pieces: DS.hasMany 'piece'
 
   spaces: (-> JSON.parse @get('rawSpaces')).property('rawSpaces')
 
