@@ -1,4 +1,6 @@
 App.BoardController = Ember.ObjectController.extend
+  rows: Em.computed.alias 'model.spaces'
+
   selectedPieces: []
 
   selectPiece: (piece) ->
