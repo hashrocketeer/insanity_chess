@@ -1,5 +1,5 @@
 App.PieceView = Ember.View.extend
-  classNameBindings: ['pieceClass', 'isSelected:selected']
+  classNameBindings: ['model.player.color', 'model.kind', 'isSelected:selected']
   attributeBindings: ['data-id', 'data-x', 'data-y', 'computedStyle:style']
   model: Em.computed.alias 'controller.model'
   boardController: Em.computed.alias 'controller.controllers.board'
@@ -10,15 +10,19 @@ App.PieceView = Ember.View.extend
   'data-x': Em.computed.alias 'model.x'
   'data-y': Em.computed.alias 'model.y'
 
-  pieceClass: ( ->
-    @get('model.player.color') + "_" + @get('model.kind')
-  ).property('model.kind', 'model.player.color')
-
   computedStyle: ( ->
+    @get('positionStyle') + @get('transitionStyle')
+  ).property('positionStyle', 'transitionStyle')
+
+  positionStyle: ( ->
     left = @get('model.x') * 31
     top = @get('model.y') * 31
     "left: #{left}px; top: #{top}px;"
   ).property('model.x', 'model.y')
+
+  transitionStyle: ( ->
+    "transition-duration: #{@get('model.speed')}ms"
+  ).property('model.speed')
 
   click: (event) ->
     @handleClickSelection(event)
