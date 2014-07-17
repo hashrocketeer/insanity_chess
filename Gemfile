@@ -20,5 +20,6 @@ group :test do
   gem 'database_cleaner'
   gem 'fabrication'
   gem 'poltergeist'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
 end
