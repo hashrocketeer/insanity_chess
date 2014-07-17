@@ -13,3 +13,10 @@ gem 'rails', '4.1.4'
 gem 'sass-rails', '~> 4.0.3'
 gem 'spring',        group: :development
 gem 'uglifier'
+
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'poltergeist'
+  gem 'selenium-webdriver'
+end
