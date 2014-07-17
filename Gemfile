@@ -13,6 +13,7 @@ gem 'rails', '4.1.4'
 gem 'sass-rails', '~> 4.0.3'
 gem 'spring',        group: :development
 gem 'uglifier'
+gem 'pry-rails'
 
 group :test do
   gem 'cucumber-rails', require: false
