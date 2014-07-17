@@ -9,3 +9,4 @@
 
 Ember.LOG_VERSION = false
 window.App = Ember.Application.create()
+App.CucumberTestMode = false

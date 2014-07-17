@@ -1,8 +1,6 @@
-section#board
+each piece in pieces
+  render 'piece' piece
 
-  each piece in pieces
-    render 'piece' piece
-
-  each row in rows
-    each space in row
-      span.space data-x="{{ unbound space.x }}" data-y="{{ unbound space.y }}"
+each row in rows
+  each space in row
+    render 'space' space

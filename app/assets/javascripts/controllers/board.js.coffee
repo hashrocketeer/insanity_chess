@@ -22,3 +22,8 @@ App.BoardController = Ember.ObjectController.extend
 
   clearSelected: ->
     @get('selectedPieces').forEach (piece) -> piece.set 'isSelected', false
+
+  movePieces: (x, y) ->
+    return false if Em.isEmpty(@get('selectedPieces'))
+    @get('selectedPieces').forEach (piece) ->
+      piece.moveTo(x, y)

@@ -1,10 +1,14 @@
 App.PieceView = Ember.View.extend
   classNameBindings: ['pieceClass', 'isSelected:selected']
-  attributeBindings: ['computedStyle:style']
+  attributeBindings: ['data-id', 'data-x', 'data-y', 'computedStyle:style']
   model: Em.computed.alias 'controller.model'
   boardController: Em.computed.alias 'controller.controllers.board'
   selectedPieces: Em.computed.alias 'boardController.selectedPieces'
   isSelected: Em.computed.alias 'model.isSelected'
+
+  'data-id': Em.computed.alias 'model.id'
+  'data-x': Em.computed.alias 'model.x'
+  'data-y': Em.computed.alias 'model.y'
 
   pieceClass: ( ->
     @get('model.player.color') + "_" + @get('model.kind')
