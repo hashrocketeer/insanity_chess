@@ -3,5 +3,5 @@ App.PieceSpeeds =
   bishop: 700
   knight: 500
   rook: 600
-  queen: 400
+  queen: 200
   king: 1200
